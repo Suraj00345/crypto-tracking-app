@@ -16,7 +16,7 @@ import TogglePriceType from "../coin/PriceType";
 
 function CoinPage() {
   const { coinID } = useParams();
-  const [isLoading, SetIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [coinData, setCoinData] = useState();
   const [days, setDays] = useState(30);
   const [chartData, setChartData] = useState([]);
@@ -37,28 +37,28 @@ function CoinPage() {
         console.log("hehehe");
 
         settingChartData(setChartData, prices);
-        SetIsLoading(false);
+        setIsLoading(false);
       }
     }
   }
 
   const handleDaysChange = async (event) => {
-    SetIsLoading(true);
+    setIsLoading(true);
     setDays(event.target.value);
     const prices = await getCoinPrices(coinID, event.target.value, priceType);
     if (prices.length > 0) {
       settingChartData(setChartData, prices);
-      SetIsLoading(false);
+      setIsLoading(false);
     }
   };
 
   const handlePriceTypeChange = async (event, newType) => {
-    SetIsLoading(true);
+    setIsLoading(true);
     setPriceType(newType);
     const prices = await getCoinPrices(coinID, days, newType);
     if (prices.length > 0) {
       settingChartData(setChartData, prices);
-      SetIsLoading(false);
+      setIsLoading(false);
     }
   };
 

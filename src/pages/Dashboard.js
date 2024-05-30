@@ -6,12 +6,13 @@ import PaginationControlled from "../components/Dashboard/Pagination";
 import Loader from "../components/common/Loader";
 import BackToTop from "../components/common/BackToTop";
 import { get100Coins } from "../functions/get100Coins";
+import Footer from "../components/common/Footer";
 
 function DashboardPage() {
   const [coins, setCoins] = useState([]);
   const [paginatedCoins, setPaginatedCoins] = useState([]);
   const [search, setSearch] = useState("");
-  const [isLoading, SetIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   const [page, setPage] = useState(1);
   const handlePageChange = (event, value) => {
@@ -39,7 +40,7 @@ function DashboardPage() {
     if (myCoins) {
       setCoins(myCoins);
       setPaginatedCoins(myCoins.slice(0, 10));
-      SetIsLoading(false);
+      setIsLoading(false);
     }
   };
 
@@ -51,14 +52,17 @@ function DashboardPage() {
         <Loader />
       ) : (
         <div>
+          <>
           <Search search={search} onSearchChange={onSearchChange} />
           <TabsComponet coins={search ? filteredCoins : paginatedCoins} />
           {!search && (
             <PaginationControlled
-              page={page}
-              handlePageChange={handlePageChange}
+            page={page}
+            handlePageChange={handlePageChange}
             />
           )}
+          <Footer/>
+          </>
         </div>
       )}
     </>

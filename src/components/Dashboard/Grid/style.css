@@ -6,25 +6,41 @@
   border-radius: 0.75rem;
 }
 
-.grid-container:hover{
-    border-color: var(--green);
-    transition: all 0.3s;
-    transform: scale(1.01);
+.grid-container:hover {
+  border-color: var(--green);
+  transition: all 0.3s;
+  transform: scale(1.01);
 }
 
-.grid-container-red:hover{
-    border-color: var(--red) !important;
-    transition: all 0.5s;
-    transform: scale(1.02);
+.grid-container-red:hover {
+  border-color: var(--red) !important;
+  transition: all 0.5s;
+  transform: scale(1.02);
 }
 
 .info-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.symbol-flex {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 1rem;
   margin: 2rem;
 }
+
+.watchlist-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 100px;
+  margin: 10px;
+  color: var(--white);
+  cursor: pointer;
+}
+
 
 .coin-logo {
   height: 3.5rem;
@@ -52,6 +68,10 @@
   font-size: 1rem;
   margin: 0;
 }
+
+/* .star{
+   display: ;
+} */
 
 .chip-flex {
   display: flex;
@@ -128,7 +148,7 @@
 .total_volume {
   color: var(--grey);
   font-weight: 500;
-  font-size: .95rem;
+  font-size: 0.95rem;
 }
 
 .volume-container {

@@ -3,9 +3,11 @@ import CircularProgress from "@mui/material/CircularProgress";
 import "./style.css";
 
 function Loader() {
-  <div className="loader-container">
-    <CircularProgress />
-  </div>;
+  return (
+    <div className="loader-flex">
+      <CircularProgress />
+    </div>
+  );
 }
 
 export default Loader;

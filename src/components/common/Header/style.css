@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 3rem;
+  padding: 1.5rem 2.5rem;
   background-color: var(--black);
   position: sticky;
   top: 0;
@@ -10,7 +10,8 @@
 }
 
 .logo {
-  font-size: 1.2rem;
+  margin-top: 0.6rem;
+  font-size: 2rem;
 }
 
 .links {
@@ -45,6 +46,7 @@ a {
   }
   .logo {
     font-size: 1rem;
+    a { color: inherit; }
   }
 
   .links {
