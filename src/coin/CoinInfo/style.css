@@ -1,0 +1,18 @@
+.grey-wrapper-div{
+    display: block;
+    width: 90%;
+    background-color: var(--darkgrey);
+    margin: 1.9rem auto;
+    border-radius: 0.8rem;
+    padding: 1.5rem;
+  }
+
+  .coin-info-desc a{
+    color: var(--blue) !important;
+    text-decoration: underline !important;
+    cursor: pointer;
+  }
+
+  .coin-info-desc p{
+    cursor: pointer;
+  }
