@@ -6,6 +6,7 @@ import gradient from "../../../assets/gradient.png";
 
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { RWebShare } from "react-web-share";
 
 const MainComponent = () => {
   return (
@@ -38,7 +39,16 @@ const MainComponent = () => {
           <Link to="/dashboard">
           <Button text={"Dashboard"} onClick={() => console.log("btn clicked")}/>
           </Link>
-          <Button text={"Share"} outlined={true} />
+          <RWebShare
+              data={{
+                text: "Crypto Tracker Application",
+                url: "https://piyushjain5350-crypto-coin-tracker.vercel.app/",
+                title: "Crypto  Tracker",
+              }}
+              onClick={() => console.log("shared successfully!") }
+            >
+          <Button text={"Share"} onClick={() => console.log("shared successfully!")} outlined={true} event={true}/>
+            </RWebShare>
         </motion.div>
       </div>
 
