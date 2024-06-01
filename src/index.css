@@ -10,6 +10,21 @@
   --red: #f94141;
 }
 
+[data-theme="dark"] {
+  --white: #ffffff;
+  --black: #111;
+  --grey: #888;
+  --darkgrey: #1b1b1b;
+}
+
+[data-theme="light"] {
+  --white: #111111;
+  --black: #ffffff;
+  --grey: #1B1B1B;
+  --text-grey:#8888A4;
+  --darkgrey: #F3F3F3;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -65,7 +80,7 @@ img {
   padding: 0.2rem;
 }
 
-.coins-days-flex{
+.coins-days-flex {
   display: flex;
   justify-content: flex-start;
   align-items: center;
