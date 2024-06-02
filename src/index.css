@@ -20,9 +20,9 @@
 [data-theme="light"] {
   --white: #111111;
   --black: #ffffff;
-  --grey: #1B1B1B;
-  --text-grey:#8888A4;
-  --darkgrey: #F3F3F3;
+  --grey: #1b1b1b;
+  --text-grey: #8888a4;
+  --darkgrey: #f3f3f3;
 }
 
 html {
@@ -85,4 +85,13 @@ img {
   justify-content: flex-start;
   align-items: center;
   gap: 1rem;
+}
+
+@media only screen and (max-width: 800px) {
+ .chart{
+  height: 40vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+ }
 }

@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import { TrendingDown } from "@mui/icons-material";
 import { TrendingUp } from "@mui/icons-material";
 import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
+import StarRateRoundedIcon from "@mui/icons-material/StarRateRounded";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { IconButton, Tooltip } from "@mui/material";
+import { addToWatchlist } from "../../../functions/addToWatchlist";
+import { removeFromWatchlist } from "../../../functions/removeFromWatchlist";
+import { hasBeenAdded } from "../../../functions/hasBeenAdded";
 
 function Grid({ coin }) {
+  const [added, setAdded] = useState(hasBeenAdded(coin.id));
+
+  const handleClick = (event) => {
+    event.preventDefault();
+    if (added) {
+      removeFromWatchlist(coin.id);
+      setAdded(false);
+    } else {
+      addToWatchlist(coin.id);
+      setAdded(true);
+    }
+  };
+
   return (
     <Link to={`/coin/${coin.id}`}>
       <motion.div
@@ -25,9 +43,28 @@ function Grid({ coin }) {
               <p className="coin-name">{coin.name}</p>
             </div>
           </div>
-          {/* <button className="watchlist-btn" onClick={(e)=>setWat}>
-            <StarBorderRoundedIcon style={{fontSize:"60px"}} />
-          </button> */}
+          <Tooltip title="added to Watchlist" placement="bottom">
+          <IconButton
+            style={{
+              color:
+                coin.price_change_percentage_24h < 0
+                  ? "var(--red)"
+                  : "var(--green)",
+            }}
+            className="watchlist-btn"
+            onClick={(event) => handleClick(event)}
+          >
+            {added ? (
+              <StarRateRoundedIcon
+                style={{ fontSize: "50px", padding: "10px" }}
+              />
+            ) : (
+              <StarBorderRoundedIcon
+                style={{ fontSize: "50px", padding: "10px" }}
+              />
+            )}
+          </IconButton>
+          </Tooltip>
         </div>
         {coin.price_change_percentage_24h > 0 ? (
           <div className="chip-flex">

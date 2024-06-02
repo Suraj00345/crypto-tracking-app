@@ -56,4 +56,18 @@
   .mobile-td-mkt {
     display: block;
   }
+  .list-row {
+    width: 200px;
+    padding: 0;
+    gap: 25px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .price-chip {
+    display: none;
+  }
+  .pagination-component {
+    margin-left: 30px;
+  }
 }

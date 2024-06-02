@@ -4,9 +4,7 @@
   align-items: flex-start;
   padding: 0.5rem 3rem;
 }
-::-webkit-scrollbar{
-  display: none;
-}
+
 
 .track-crypto-heading,
 .real-time-heading {

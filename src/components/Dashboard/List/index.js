@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
 import { TrendingDown, TrendingUp } from "@mui/icons-material";
-import { Tooltip } from "@mui/material";
+import { IconButton, Tooltip } from "@mui/material";
 import { convertNumber } from "../../../functions/convertNumbers";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { addToWatchlist } from "../../../functions/addToWatchlist";
+import { removeFromWatchlist } from "../../../functions/removeFromWatchlist";
+import { hasBeenAdded } from "../../../functions/hasBeenAdded";
+import StarBorderRoundedIcon from "@mui/icons-material/StarBorderRounded";
+import StarRateRoundedIcon from "@mui/icons-material/StarRateRounded";
 
 function List({ coin, key }) {
+
+  const [added,setAdded]=useState(hasBeenAdded(coin.id));
+
+  const handleClick=(event)=>{
+      event.preventDefault();
+      if (added) {
+          removeFromWatchlist(coin.id);
+          setAdded(false);
+      } else {
+          addToWatchlist(coin.id);
+          setAdded(true);
+      }
+  }
+
+
   return (
     <Link to={`/coin/${coin.id}`}>
       <motion.tr
@@ -86,6 +106,29 @@ function List({ coin, key }) {
             </p>
           </td>
         </Tooltip>
+
+        <Tooltip title="added to Watchlist">
+          <IconButton
+            style={{
+              color:
+                coin.price_change_percentage_24h < 0
+                  ? "var(--red)"
+                  : "var(--green)",
+            }}
+            className="watchlist-btn"
+            onClick={(event) => handleClick(event)}
+          >
+            {added ? (
+              <StarRateRoundedIcon
+                style={{ fontSize: "50px", padding: "10px" }}
+              />
+            ) : (
+              <StarBorderRoundedIcon
+                style={{ fontSize: "50px", padding: "10px" }}
+              />
+            )}
+          </IconButton>
+          </Tooltip>
       </motion.tr>
     </Link>
   );

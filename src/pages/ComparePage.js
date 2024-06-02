@@ -92,6 +92,8 @@ const ComparePage = () => {
     }
   };
 
+
+
   return (
     <div>
       <Header />
@@ -121,7 +123,7 @@ const ComparePage = () => {
             priceType={priceType}
             handlePriceTypeChange={handlePriceTypeChange}
           />
-          <div className="grey-wrapper">
+          <div className="grey-wrapper, chart" >
             <LineChart
               chartData={chartData}
               priceType={priceType}
