@@ -35,19 +35,22 @@ function WatchlistPage() {
         ) : (
           <div style={{ minHeight: "90vh" }}>
             {myWatchlist?.length === 0 || !coins ? (
-              <div>
+              <div style={{ display: "flex", flexDirection: "column" }}>
                 <h1
                   style={{
                     textAlign: "center",
                     marginBottom: "2rem",
-                    color: "var(--black)",
+                    color: "var(--white)",
                   }}
                 >
                   No Items in the Watchlist
                 </h1>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                   <Link to="/dashboard">
-                    <Button text={"Dashboard"} onClick={() => console.log("btn clicked")}/>
+                    <Button
+                      text={"Dashboard"}
+                      onClick={() => console.log("btn clicked")}
+                    />
                   </Link>
                 </div>
               </div>
